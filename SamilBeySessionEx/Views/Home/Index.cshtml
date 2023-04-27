@@ -1,0 +1,31 @@
+﻿@using SamilBeySessionEx.Models
+@model List<Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col">
+            <div class="card h-100">
+                <img src="~/img/">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="/Home/Details/@product.Id">@product.Name</a>
+                    </h5>
+                    <p class="card-text">
+                      
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">@product.Price.ToString("c")</small>
+                    <a asp-action="Buy" asp-controller="Basket" asp-route-id ="@product.Id" class="btn btn-success">
+                        <i class="bi bi-basket-fill"></i>
+                <span class="badge">Add To Basket</span>
+            </a>
+                </div>
+            </div>
+        </div>
+    }
+    </div>
